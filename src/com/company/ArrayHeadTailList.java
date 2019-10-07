@@ -80,6 +80,12 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public boolean contains(T anEntry) {
+        for (int i = 0; i < numberOfElements; i++) {
+            if (listArray[i].equals(anEntry)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
