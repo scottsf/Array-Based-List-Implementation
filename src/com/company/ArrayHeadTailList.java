@@ -9,10 +9,6 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     private static final int DEFAULT_CAPACITY = 10;
 
     public ArrayHeadTailList(int initialCapacity) {
-        if (initialCapacity < DEFAULT_CAPACITY) {
-            initialCapacity = DEFAULT_CAPACITY;
-        }
-
         T[] tempListArray = (T[]) new Object[initialCapacity];
         listArray = tempListArray;
         numberOfElements = 0;
@@ -68,7 +64,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void clear() {
-        listArray = (T[]) new Object[DEFAULT_CAPACITY];
+        listArray = (T[]) new Object[listArray.length];
         numberOfElements = 0;
     }
 
