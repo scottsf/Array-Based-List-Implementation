@@ -70,7 +70,13 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public int indexOf(T anEntry) {
-        return 0;
+        for (int i = 0 ; i < numberOfElements; i++) {
+            if (listArray[i].equals(anEntry)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
