@@ -3,18 +3,14 @@ package com.company;
 public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     private T[] listArray;
     private int numberOfElements;
-    private T head;
-    private  T tail;
-    private static final int initialCapacity = 15;
-
-    public ArrayHeadTailList() {
-        this(initialCapacity);
-    }
+    private static final int DEFAULT_CAPACITY = 15;
 
     public ArrayHeadTailList(int initialCapacity) {
-        T[] tempListArray = (T[]) new Object[initialCapacity + 1];
-        head = null;
-        tail = null;
+        if (initialCapacity < DEFAULT_CAPACITY) {
+            initialCapacity = DEFAULT_CAPACITY;
+        }
+
+        T[] tempListArray = (T[]) new Object[initialCapacity];
         listArray = tempListArray;
         numberOfElements = 0;
     }
