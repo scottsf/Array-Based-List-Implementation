@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     private T[] listArray;
@@ -38,12 +39,31 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public T removeFront() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+
+        T frontElement = listArray[0];
+
+        for (int i = 0; i < numberOfElements - 1; i++) {
+            listArray[i] = listArray[i + 1];
+        }
+
+        numberOfElements--;
+        return frontElement;
     }
 
     @Override
     public T removeBack() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+
+        T lastElement = listArray[numberOfElements - 1];
+        listArray[numberOfElements - 1] = null;
+        numberOfElements--;
+
+        return lastElement;
     }
 
     @Override
@@ -69,7 +89,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
         }
 
         System.out.println(numberOfElements + " elements; " + "capacity = " +
-                DEFAULT_CAPACITY + "\t" + (numberOfElements == 0 ? " " : Arrays.toString(array)));
+                listArray.length + "\t" + (numberOfElements == 0 ? " " : Arrays.toString(array)));
     }
 
     @Override
@@ -116,7 +136,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     }
 
     public void expandCapacity() {
-        if (numberOfElements + 1 == listArray.length) {
+        if (numberOfElements  == listArray.length) {
             listArray = Arrays.copyOf(listArray, numberOfElements * 2);
         }
     }
