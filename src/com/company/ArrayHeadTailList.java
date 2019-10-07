@@ -103,7 +103,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public int size() {
-        return 0;
+        return numberOfElements;
     }
 
     @Override
