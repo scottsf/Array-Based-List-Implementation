@@ -31,7 +31,9 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void addBack(T newEntry) {
-
+        // check capacity
+        listArray[numberOfElements] = newEntry;
+        numberOfElements++;
     }
 
     @Override
@@ -46,7 +48,8 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void clear() {
-
+        listArray = (T[]) new Object[DEFAULT_CAPACITY];
+        numberOfElements = 0;
     }
 
     @Override
@@ -61,7 +64,8 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
             array[i] = listArray[i];
         }
 
-        System.out.println(Arrays.toString(array));
+        System.out.println(numberOfElements + " elements; " + "capacity = " +
+                DEFAULT_CAPACITY + "\t" + (numberOfElements == 0 ? " " : Arrays.toString(array)));
     }
 
     @Override
