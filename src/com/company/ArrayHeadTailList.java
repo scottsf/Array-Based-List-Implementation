@@ -20,7 +20,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void addFront(T newEntry) {
-        // check the capacity and expand it if necessary
+        expandCapacity();
         for (int i = numberOfElements; i > 0; i--) {
             listArray[i] = listArray[i - 1];
         }
@@ -31,7 +31,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void addBack(T newEntry) {
-        // check capacity
+        expandCapacity();
         listArray[numberOfElements] = newEntry;
         numberOfElements++;
     }
@@ -97,6 +97,12 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     @Override
     public boolean isEmpty() {
         return numberOfElements == 0;
+    }
+
+    public void expandCapacity() {
+        if (numberOfElements + 1 == listArray.length) {
+            listArray = Arrays.copyOf(listArray, numberOfElements * 2);
+        }
     }
 }
 
