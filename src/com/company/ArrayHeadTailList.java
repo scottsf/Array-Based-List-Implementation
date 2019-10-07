@@ -1,9 +1,11 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
     private T[] listArray;
     private int numberOfElements;
-    private static final int DEFAULT_CAPACITY = 15;
+    private static final int DEFAULT_CAPACITY = 10;
 
     public ArrayHeadTailList(int initialCapacity) {
         if (initialCapacity < DEFAULT_CAPACITY) {
@@ -22,7 +24,9 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
         for (int i = numberOfElements; i > 0; i--) {
             listArray[i] = listArray[i - 1];
         }
+
         listArray[0] = newEntry;
+        numberOfElements++;
     }
 
     @Override
@@ -52,7 +56,12 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void display() {
+        T[] array = (T[]) new Object[numberOfElements];
+        for (int i = 0; i < numberOfElements; i++) {
+            array[i] = listArray[i];
+        }
 
+        System.out.println(Arrays.toString(array));
     }
 
     @Override
