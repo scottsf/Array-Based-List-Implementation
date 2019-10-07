@@ -81,7 +81,13 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public int lastIndexOf(T anEntry) {
-        return 0;
+        for (int i = numberOfElements - 1; i >= 0; i--) {
+            if (listArray[i].equals(anEntry)) {
+                return i;
+            }
+
+        }
+        return -1;
     }
 
     @Override
