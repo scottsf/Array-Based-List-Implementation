@@ -18,7 +18,11 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public void addFront(T newEntry) {
-
+        // check the capacity and expand it if necessary
+        for (int i = numberOfElements; i > 0; i--) {
+            listArray[i] = listArray[i - 1];
+        }
+        listArray[0] = newEntry;
     }
 
     @Override
