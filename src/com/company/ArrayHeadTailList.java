@@ -54,7 +54,11 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public T getEntry(int givenPosition) {
-        return null;
+        if (givenPosition >= numberOfElements || givenPosition < 0) {
+            return null;
+        }
+
+        return listArray[givenPosition];
     }
 
     @Override
