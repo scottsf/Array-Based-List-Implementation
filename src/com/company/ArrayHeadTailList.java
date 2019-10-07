@@ -73,7 +73,7 @@ public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return numberOfElements == 0;
     }
 }
 
