@@ -42,11 +42,7 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
 
 
     public void clear() {
-        if(!list.isEmpty()) {
-            for(int i = 0; i < list.size(); i++) {
-                list.remove(i);
-            }
-        }
+        list.clear();
     }
 
     public T getEntry(int givenPosition){
