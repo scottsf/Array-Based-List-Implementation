@@ -13,7 +13,6 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
 
     public void addFront(T newEntry) {
         list.add(list.size(), newEntry);
-
     }
 
     public void addBack(T newEntry) {
@@ -45,8 +44,8 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
         list.clear();
     }
 
-    public T getEntry(int givenPosition){
-        if(givenPosition > list.size()-1) {
+    public T getEntry(int givenPosition) {
+        if (givenPosition > list.size() - 1) {
             return null;
         }
         return list.get(givenPosition);
@@ -57,9 +56,7 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
             for (int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i) + ", ");
             }
-
-        }
-        else {
+        } else {
             System.out.print("");
 
         }
