@@ -12,7 +12,7 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
     }
 
     public void addFront(T newEntry) {
-        list.add(list.size(), newEntry);
+        list.add(0, newEntry);
     }
 
     public void addBack(T newEntry) {
@@ -45,7 +45,7 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
     }
 
     public T getEntry(int givenPosition) {
-        if (givenPosition > list.size() - 1) {
+        if (givenPosition > list.size() - 1 || givenPosition < 0) {
             return null;
         }
         return list.get(givenPosition);
@@ -68,12 +68,12 @@ public class ListHeadTailList<T> implements HeadTailListInterface<T> {
     }
 
     public int lastIndexOf(T anEntry) {
-        return lastIndexOf(anEntry);
+        return list.lastIndexOf(anEntry);
     }
 
 
     public boolean contains(T anEntry) {
-        return contains(anEntry);
+        return list.contains(anEntry);
     }
 
 
